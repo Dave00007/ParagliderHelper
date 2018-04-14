@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.application.paragliderhelper.WelcomePage">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/start_button"
+            style="@style/AlertDialog.AppCompat.Light"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="400dp"
+            android:text="@string/start"
+            android:textColor="@android:color/black"
+            android:textColorLink="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:theme="@style/AlertDialog.AppCompat" />
+
+        <Button
+            android:id="@+id/settings_button"
+            style="@style/AlertDialog.AppCompat.Light"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:text="@string/settings"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/intro_photo"
+            android:layout_width="match_parent"
+            android:layout_height="347dp"
+            android:layout_marginTop="-450dp"
+            android:adjustViewBounds="true"
+            android:cropToPadding="false"
+            android:longClickable="false"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/paraglider_photo_with_text" />
+
+    </LinearLayout>
+</android.support.design.widget.CoordinatorLayout>
