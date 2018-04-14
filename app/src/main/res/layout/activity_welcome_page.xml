@@ -12,7 +12,7 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/start_button"
+            android:id="@+id/startButton"
             style="@style/AlertDialog.AppCompat.Light"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -27,7 +27,7 @@
             android:theme="@style/AlertDialog.AppCompat" />
 
         <Button
-            android:id="@+id/settings_button"
+            android:id="@+id/settingsButton"
             style="@style/AlertDialog.AppCompat.Light"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -38,11 +38,23 @@
             android:textSize="18sp"
             android:textStyle="bold" />
 
+        <Button
+            android:id="@+id/aboutAppButton"
+            style="@style/AlertDialog.AppCompat.Light"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:text="@string/about_application"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
         <ImageView
-            android:id="@+id/intro_photo"
+            android:id="@+id/introPhoto"
             android:layout_width="match_parent"
             android:layout_height="347dp"
-            android:layout_marginTop="-450dp"
+            android:layout_marginTop="-490dp"
             android:adjustViewBounds="true"
             android:cropToPadding="false"
             android:longClickable="false"
