@@ -13,16 +13,19 @@
             android:name=".WelcomePage"
             android:label="@string/title_activity_welcome_page"
             android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+        <activity
+            android:name=".SettingsPage"
+            android:label="@string/title_activity_settings_page"
+            android:theme="@style/AppTheme.NoActionBar">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".SettingsPage"
-            android:label="@string/title_activity_settings_page"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

@@ -6,6 +6,18 @@
     <string name="start">START</string>
     <string name="settings">USTAWIENIA</string>
     <string name="title_activity_settings_page">SettingsPage</string>
+    <string name="personal_data">Dane personalne:</string>
+    <string name="first_name">Imię</string>
+    <string name="surname">Nazwisko</string>
+    <string name="city">Miasto</string>
+    <string name="lanugage">Język:</string>
+    <string name="vibrations">Ustawienia wibracji:</string>
+    <string name="freq_vibrations_up">Częstotliwość wibracji przy unoszeniu</string>
+    <string name="freq_vibrations_down">Częstotliwość wibracji przy opadaniu</string>
+    <string name="phone_number_SOS">Numery telefonów do których zostanie wysłane SOS:</string>
+    <string name="phone_number_1">Numer telefonu 1</string>
+    <string name="phone_number_2">Numer telefonu 2</string>
+    <string name="phone_number_3">Numer telefonu 3</string>
 
 
 </resources>
