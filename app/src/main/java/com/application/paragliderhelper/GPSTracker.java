@@ -13,6 +13,8 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.support.v4.content.ContextCompat;
 
+import com.google.android.gms.maps.GoogleMap;
+
 import java.security.Permission;
 
 /**
@@ -27,7 +29,10 @@ public  class GPSTracker extends Service implements LocationListener{
     boolean isNetworkEnabled = false;
     boolean canGetLocation = false;
 
+
     Location location;
+    double latitude, longitude;
+
     protected LocationManager locationManager;
     public GPSTracker(Context context){
         this.context=context;
@@ -71,7 +76,8 @@ public  class GPSTracker extends Service implements LocationListener{
 
 
     public void onLocationChanged(Location location){
-
+        latitude=location.getLatitude();
+        longitude=location.getLongitude();
     }
 
     public void onStatusChanged(String Provider, int status, Bundle extras){

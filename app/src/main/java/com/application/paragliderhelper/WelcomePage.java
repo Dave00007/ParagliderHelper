@@ -14,8 +14,10 @@ public class WelcomePage extends AppCompatActivity implements View.OnClickListen
         setContentView(R.layout.activity_welcome_page);
         Button settingsButton = findViewById(R.id.settingsButton);
         Button aboutAppButton = findViewById(R.id.aboutAppButton);
+        Button mapAppButton =findViewById(R.id.startButton);
         settingsButton.setOnClickListener(this);
         aboutAppButton.setOnClickListener(this);
+        mapAppButton.setOnClickListener(this);
     }
 
 
@@ -30,6 +32,11 @@ public class WelcomePage extends AppCompatActivity implements View.OnClickListen
             case R.id.aboutAppButton:
                 Intent intentAboutApp =new Intent(this, AboutAppPage.class);
                 startActivity(intentAboutApp);
+                break;
+
+            case R.id.startButton:
+                Intent intentMaapPage =new Intent(this, MapsPage.class);
+                startActivity(intentMaapPage);
                 break;
         }
     }
