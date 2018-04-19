@@ -25,6 +25,7 @@
     <string name="about_authors">Dawid Balicki\nMaciej Cymbalista\nKierunek: Informatyka\nWydział: EAIIIB\nAGH, 2018</string>
     <string name="about_application">O APLIKACJI</string>
     <string name="title_activity_maps_page">Mapa</string>
+    <string name="title_activity_maps">Map</string>
 
 
 </resources>
