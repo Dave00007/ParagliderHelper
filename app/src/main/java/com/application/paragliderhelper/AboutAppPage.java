@@ -1,5 +1,6 @@
 package com.application.paragliderhelper;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -16,4 +17,10 @@ public class AboutAppPage extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+
+        Intent intentWelcomePage = new Intent(this, WelcomePage.class);
+        startActivity(intentWelcomePage);
+    }
 }
