@@ -42,6 +42,8 @@ public class MapsPage extends FragmentActivity implements OnMapReadyCallback, Go
     private boolean mLocationUpdateState;
     private static final int REQUEST_CHECK_SETTINGS = 2;
 
+    private Intent intentAccService;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,11 +52,11 @@ public class MapsPage extends FragmentActivity implements OnMapReadyCallback, Go
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-        Log.e("mapa", "dusdpa");
 
-        //Accelerometer acc = new Accelerometer();
 
-        // 1
+        intentAccService = new Intent(this, Accelerometer.class); // starting accelerometr service
+        startService(intentAccService);
+
         if (mGoogleApiClient == null) {
             mGoogleApiClient = new GoogleApiClient.Builder(this)
                     .addConnectionCallbacks(this)
@@ -270,6 +272,13 @@ public class MapsPage extends FragmentActivity implements OnMapReadyCallback, Go
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {
 
+    }
+    @Override
+    public void onBackPressed() {
+        stopService(intentAccService);
+        Log.e("a", "b");
+        Intent intentSettingsPage = new Intent(this, WelcomePage.class);
+        startActivity(intentSettingsPage);
     }
 
 }

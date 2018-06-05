@@ -22,4 +22,10 @@ public class Vibrations  {
         vibrator.vibrate(pattern, -1);
     }
 
+    void vibreStop(){
+        long[] pattern = {0, 0, 1000};
+        vibrator.vibrate(pattern, 0);
+        vibrator.cancel();
+    }
+
 }

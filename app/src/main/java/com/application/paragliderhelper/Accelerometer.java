@@ -15,6 +15,7 @@ import android.util.Log;
 public class Accelerometer extends Service implements SensorEventListener {
     private  SensorManager mSensorManager;
     private  Sensor mAccelerometer;
+    private Vibrations vibrations;
     double ax,ay,az;
 
 
@@ -27,24 +28,28 @@ public class Accelerometer extends Service implements SensorEventListener {
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         mSensorManager.registerListener(this, mAccelerometer, SensorManager.SENSOR_DELAY_UI, new Handler());
-        Log.e("acc", "taaak");
-    return START_STICKY;
-}
 
-//    @Override
-//    public void onCreate() {
-//        sensorManager= (SensorManager)getSystemService(Context.SENSOR_SERVICE);
-//        Sensor accSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-//        sensorManager.registerListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
-//        //sensorManager.registerListener(this, accSensor, SensorManager.SENSOR_DELAY_NORMAL);
-//        Log.e("acc", "elozka");
-//    }
+        vibrations = new Vibrations(this);
+        //Log.e("acc", "taaak");
+        return START_STICKY;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        vibrations.vibreStop();
+        Log.e("stop", "stop");
+    }
+
+
 
     @Override
     public void onSensorChanged(SensorEvent sensorEvent) {
         if (sensorEvent.sensor.getType()==Sensor.TYPE_ACCELEROMETER) {
             ax = sensorEvent.values[0];
-            Log.e("onChenged", "jestt");
+            //Log.e("onChenged", "jestt");
+
+            vibrations.vibreDown();
         }
 //        if (ax<0){
 //            Vibrations vibr = new Vibrations(this);

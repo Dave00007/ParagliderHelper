@@ -14,10 +14,15 @@ import java.util.Locale;
 
 public class WelcomePage extends AppCompatActivity implements View.OnClickListener {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initializeDataFromSharedPreferences(this);
+
+
+
         if (Data.getSelectedEnglish()){
             String languageToLoad = "en"; // your language
             Locale locale = new Locale(languageToLoad);
@@ -52,8 +57,6 @@ public class WelcomePage extends AppCompatActivity implements View.OnClickListen
                 break;
 
             case R.id.startButton:
-                Intent intent = new Intent(this, Accelerometer.class);
-                startService(intent);
                 Intent intentMapPage =new Intent(this, MapsPage.class);
                 startActivity(intentMapPage);
 
