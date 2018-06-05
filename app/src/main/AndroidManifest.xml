@@ -53,7 +53,9 @@
 
         <activity
             android:name=".MapsPage"
-            android:label="@string/title_activity_maps_page"></activity>
+            android:label="@string/title_activity_maps_page">
+
+        </activity>
     </application>
 
 </manifest>

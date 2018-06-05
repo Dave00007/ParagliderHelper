@@ -1,13 +1,13 @@
 package com.application.paragliderhelper;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
-import android.nfc.Tag;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -32,6 +32,7 @@ public class SettingsPage extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_settings_page);
         englishButton = findViewById(R.id.englishButton);
         polandButton = findViewById(R.id.polandButton);
@@ -52,47 +53,23 @@ public class SettingsPage extends AppCompatActivity implements View.OnClickListe
         phoneNumber1EditText.setText(Data.getPhoneNumber1());
         phoneNumber2EditText.setText(Data.getPhoneNumber2());
         phoneNumber3EditText.setText(Data.getPhoneNumber3());
-        freqSeekBarDown.setOnSeekBarChangeListener(seekBarDownChangeListener);
-        freqSeekBarUp.setOnSeekBarChangeListener(seekBarUpChangeListener);
-
-        englishButton.setEnabled(false);
-        englishButton.setImageAlpha(100);  //argumet between 0-255 , 0 - invisible, 255 - 100% visible
         polandButton.setOnClickListener(this);
         englishButton.setOnClickListener(this);
-    }
 
-    SeekBar.OnSeekBarChangeListener seekBarUpChangeListener = new SeekBar.OnSeekBarChangeListener() {
-    @Override
-    public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-        Data.setValueSeekBarUp(i);
-    }
-
-    @Override
-    public void onStartTrackingTouch(SeekBar seekBar) {
-
-    }
-
-    @Override
-    public void onStopTrackingTouch(SeekBar seekBar) {
-
-    }
-    };
-    SeekBar.OnSeekBarChangeListener seekBarDownChangeListener = new SeekBar.OnSeekBarChangeListener() {
-        @Override
-        public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-            Data.setValueSeekBarDown(i);
+        if(Data.getSelectedEnglish()){
+            englishButton.setEnabled(false);
+            englishButton.setImageAlpha(100);  //argumet between 0-255 , 0 - invisible, 255 - 100% visible
+            polandButton.setEnabled(true);
+            polandButton.setImageAlpha(255);
+        }
+        else{
+            englishButton.setEnabled(true);
+            englishButton.setImageAlpha(255);  //argumet between 0-255 , 0 - invisible, 255 - 100% visible
+            polandButton.setEnabled(false);
+            polandButton.setImageAlpha(100);
         }
 
-        @Override
-        public void onStartTrackingTouch(SeekBar seekBar) {
-
-        }
-
-        @Override
-        public void onStopTrackingTouch(SeekBar seekBar) {
-
-        }
-    };
+    }
 
     @Override
     public void onClick(View view) {
@@ -109,8 +86,12 @@ public class SettingsPage extends AppCompatActivity implements View.OnClickListe
                 config.locale = locale;
                 getBaseContext().getResources().updateConfiguration(config,
                         getBaseContext().getResources().getDisplayMetrics());
-                // this.setContentView(R.layout.activity_settings_page);
-
+                //this.setContentView(R.layout.activity_settings_page);
+                Log.i("str","eng");
+                Data.setSelectedEnglish(true);
+                Intent intent = new Intent(this, SettingsPage.class);
+                startActivity(intent);
+                finish();
 
                 break;
 
@@ -127,8 +108,50 @@ public class SettingsPage extends AppCompatActivity implements View.OnClickListe
                 getBaseContext().getResources().updateConfiguration(config1,
                         getBaseContext().getResources().getDisplayMetrics());
                 //this.setContentView(R.layout.activity_settings_page);
+                Data.setSelectedEnglish(false);
+                Log.i("str","polski");
+                Intent intent1 = new Intent(this, SettingsPage.class);
+                startActivity(intent1);
+                finish();
 
                 break;
         }
     }
+
+    @Override
+    public void onBackPressed() {
+
+        String PREFERENCES_NAME = "settingsSharedPreferences";
+        SharedPreferences sharedPreferences;
+        sharedPreferences = this.getSharedPreferences(PREFERENCES_NAME, Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putString("firstname", String.valueOf(firstNameEditText.getText()));
+        Data.setFirstName(String.valueOf(firstNameEditText.getText()));
+        editor.putString("surname", String.valueOf(surnameEditText.getText()));
+        Data.setSurname(String.valueOf(surnameEditText.getText()));
+        editor.putString("city", String.valueOf(cityEditText.getText()));
+        Data.setCity(String.valueOf(cityEditText.getText()));
+
+        editor.putString("phoneNumber1", String.valueOf(phoneNumber1EditText.getText()));
+        Data.setPhoneNumber1(String.valueOf(phoneNumber1EditText.getText()));
+        editor.putString("phoneNumber2", String.valueOf(phoneNumber2EditText.getText()));
+        Data.setPhoneNumber1(String.valueOf(phoneNumber2EditText.getText()));
+        editor.putString("phoneNumber3", String.valueOf(phoneNumber3EditText.getText()));
+        Data.setPhoneNumber1(String.valueOf(phoneNumber3EditText.getText()));
+
+        editor.putInt("valueSeekBarDown", freqSeekBarDown.getProgress());
+        Data.setValueSeekBarDown(freqSeekBarDown.getProgress());
+        editor.putInt("valueSeekBarUp", freqSeekBarUp.getProgress());
+        Data.setValueSeekBarUp(freqSeekBarUp.getProgress());
+
+        editor.putBoolean("selectedEnglish", !englishButton.isEnabled());
+        Data.setSelectedEnglish(!englishButton.isEnabled());
+
+        editor.apply();
+
+        Intent intentSettingsPage = new Intent(this, WelcomePage.class);
+        startActivity(intentSettingsPage);
+    }
+
 }

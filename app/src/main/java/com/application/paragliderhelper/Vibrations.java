@@ -1,7 +1,6 @@
 package com.application.paragliderhelper;
 
 import android.content.Context;
-import android.os.VibrationEffect;
 import android.os.Vibrator;
 
 public class Vibrations  {

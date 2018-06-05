@@ -3,16 +3,18 @@ package com.application.paragliderhelper;
 
 class Data {
 
-    private static Integer valueSeekBarUp = 0;
-    private static Integer valueSeekBarDown = 0;
-    private static String firstName = "";
-    private static String surname = "";
-    private static String city = "";
-    private static String phoneNumber1 = "";
-    private static String phoneNumber2 = "";
-    private static String phoneNumber3 = "";
+    private static Integer valueSeekBarUp;
+    private static Integer valueSeekBarDown;
+    private static String firstName;
+    private static String surname;
+    private static String city;
+    private static String phoneNumber1;
+    private static String phoneNumber2;
+    private static String phoneNumber3;
+    private static Boolean selectedEnglish;
 
     static Integer getValueSeekBarDown() {
+
         return valueSeekBarDown;
     }
 
@@ -20,28 +22,32 @@ class Data {
         return valueSeekBarUp;
     }
 
-    public static String getFirstName() {
+    static String getFirstName() {
         return firstName;
     }
 
-    public static String getSurname() {
+    static String getSurname() {
         return surname;
     }
 
-    public static String getCity() {
+    static String getCity() {
         return city;
     }
 
-    public static String getPhoneNumber1() {
+    static String getPhoneNumber1() {
         return phoneNumber1;
     }
 
-    public static String getPhoneNumber2() {
+    static String getPhoneNumber2() {
         return phoneNumber2;
     }
 
-    public static String getPhoneNumber3() {
+    static String getPhoneNumber3() {
         return phoneNumber3;
+    }
+
+    static Boolean getSelectedEnglish() {
+        return selectedEnglish;
     }
 
     static void setValueSeekBarDown(Integer valueSeekBarDown) {
@@ -52,27 +58,31 @@ class Data {
         Data.valueSeekBarUp = valueSeekBarUp;
     }
 
-    public static void setFirstName(String firstName) {
+    static void setFirstName(String firstName) {
         Data.firstName = firstName;
     }
 
-    public static void setSurname(String surname) {
+    static void setSurname(String surname) {
         Data.surname = surname;
     }
 
-    public static void setCity(String city) {
+    static void setCity(String city) {
         Data.city = city;
     }
 
-    public static void setPhoneNumber1(String phoneNumber1) {
+    static void setPhoneNumber1(String phoneNumber1) {
         Data.phoneNumber1 = phoneNumber1;
     }
 
-    public static void setPhoneNumber2(String phoneNumber2) {
+    static void setPhoneNumber2(String phoneNumber2) {
         Data.phoneNumber2 = phoneNumber2;
     }
 
-    public static void setPhoneNumber3(String phoneNumber3) {
+    static void setPhoneNumber3(String phoneNumber3) {
         Data.phoneNumber3 = phoneNumber3;
+    }
+
+    static void setSelectedEnglish(Boolean selectedEnglish) {
+        Data.selectedEnglish = selectedEnglish;
     }
 }
