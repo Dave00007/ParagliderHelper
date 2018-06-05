@@ -52,8 +52,11 @@ public class WelcomePage extends AppCompatActivity implements View.OnClickListen
                 break;
 
             case R.id.startButton:
-                Intent intentMaapPage =new Intent(this, MapsPage.class);
-                startActivity(intentMaapPage);
+                Intent intent = new Intent(this, Accelerometer.class);
+                startService(intent);
+                Intent intentMapPage =new Intent(this, MapsPage.class);
+                startActivity(intentMapPage);
+
                 break;
         }
     }
