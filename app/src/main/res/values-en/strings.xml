@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">ParagliderHelper</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_welcome_page">WelcomePage</string>
+
+    <string name="start">START</string>
+    <string name="settings">SETTINGS</string>
+    <string name="title_activity_settings_page">SettingsPage</string>
+    <string name="personal_data">Personal data:</string>
+    <string name="first_name">First Name</string>
+    <string name="surname">Surname</string>
+    <string name="city">City</string>
+    <string name="lanugage">Language:</string>
+    <string name="vibrations">Vibrations settings:</string>
+    <string name="freq_vibrations_up">Częstotliwość wibracji przy unoszeniu</string>
+    <string name="freq_vibrations_down">Częstotliwość wibracji przy opadaniu</string>
+    <string name="phone_number_SOS">Numery telefonów do których zostanie wysłane SOS:</string>
+    <string name="phone_number_1">Numer telefonu 1</string>
+    <string name="phone_number_2">Numer telefonu 2</string>
+    <string name="phone_number_3">Numer telefonu 3</string>
+    <string name="title_activity_about_app">Mapa</string>
+    <string name="description_of_functionality">Opis funkcjonalności:</string>
+    <string name="information_about_functionality">UZUPEŁNIĆ..\n1...\n2...\n3...</string>
+    <string name="authors">Authors:</string>
+    <string name="about_authors">Dawid Balicki\nMaciej Cymbalista\nKierunek: Informatyka\nWydział: EAIIIB\nAGH, 2018</string>
+    <string name="about_application">O APLIKACJI</string>
+    <string name="title_activity_maps_page">Mapa</string>
+
+
+</resources>
