@@ -1,12 +1,16 @@
 package com.application.paragliderhelper;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.telephony.SmsManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -21,7 +25,20 @@ public class WelcomePage extends AppCompatActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         initializeDataFromSharedPreferences(this);
 
+        int PERMISSION_REQUEST_CODE = 1;
 
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+
+            if (checkSelfPermission(Manifest.permission.SEND_SMS)
+                    == PackageManager.PERMISSION_DENIED) {
+
+                Log.d("permission", "permission denied to SEND_SMS - requesting it");
+                String[] permissions = {Manifest.permission.SEND_SMS};
+
+                requestPermissions(permissions, PERMISSION_REQUEST_CODE);
+
+            }
+        }
 
         if (Data.getSelectedEnglish()){
             String languageToLoad = "en"; // your language

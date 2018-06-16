@@ -49,7 +49,7 @@ public class Accelerometer extends Service implements SensorEventListener {
             ax = sensorEvent.values[0];
             //Log.e("onChenged", "jestt");
 
-            vibrations.vibreDown();
+            //vibrations.vibreDown();
         }
 //        if (ax<0){
 //            Vibrations vibr = new Vibrations(this);

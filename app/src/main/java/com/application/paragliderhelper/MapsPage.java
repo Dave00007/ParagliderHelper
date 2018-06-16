@@ -1,6 +1,7 @@
 package com.application.paragliderhelper;
 
 import android.Manifest;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.pm.PackageManager;
@@ -10,7 +11,10 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
+import android.telephony.SmsManager;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -41,6 +45,9 @@ public class MapsPage extends FragmentActivity implements OnMapReadyCallback, Go
     private LocationRequest mLocationRequest;
     private boolean mLocationUpdateState;
     private static final int REQUEST_CHECK_SETTINGS = 2;
+    private int MIN_LENGTH_OF_NUMBER = 9;
+
+    private Button sosButton;
 
     private Intent intentAccService;
 
@@ -53,6 +60,7 @@ public class MapsPage extends FragmentActivity implements OnMapReadyCallback, Go
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+        sosButton = findViewById(R.id.sosButton);
 
         intentAccService = new Intent(this, Accelerometer.class); // starting accelerometr service
         startService(intentAccService);
@@ -67,6 +75,18 @@ public class MapsPage extends FragmentActivity implements OnMapReadyCallback, Go
             //createLocationRequest();
         }
         createLocationRequest();
+
+        sosButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                String message;
+                message = getResources().getString(R.string.message) + "\n" + Data.getFirstName() + " " + Data.getSurname();
+                if(Data.getPhoneNumber1().length() >= MIN_LENGTH_OF_NUMBER) sendSMS(Data.getPhoneNumber1(), message);
+                if(Data.getPhoneNumber2().length() >= MIN_LENGTH_OF_NUMBER) sendSMS(Data.getPhoneNumber2(), message);
+                if(Data.getPhoneNumber3().length() >= MIN_LENGTH_OF_NUMBER) sendSMS(Data.getPhoneNumber3(), message);
+
+            }
+        });
+
     }
 
 
@@ -279,6 +299,11 @@ public class MapsPage extends FragmentActivity implements OnMapReadyCallback, Go
         Log.e("a", "b");
         Intent intentSettingsPage = new Intent(this, WelcomePage.class);
         startActivity(intentSettingsPage);
+    }
+
+    private void sendSMS(String phoneNumber, String message) {
+        SmsManager sms = SmsManager.getDefault();
+        sms.sendTextMessage(phoneNumber, null, message,null, null);
     }
 
 }
