@@ -7,6 +7,9 @@
     <string name="settings">USTAWIENIA</string>
     <string name="sos">S O S</string>
     <string name="message">Potrzebuje pomocy! Mam problemy z paralotnią!</string>
+    <string name="notification">Wiadomość SOS wysłana!</string>
+    <string name="notification_about_no_numbers">Brak podanego numeru!</string>
+
 
     <string name="title_activity_settings_page">SettingsPage</string>
     <string name="personal_data">Dane personalne:</string>

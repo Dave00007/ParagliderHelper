@@ -7,6 +7,8 @@
     <string name="settings">SETTINGS</string>
     <string name="sos">S O S</string>
     <string name="message">Need help! I have problems with the paraglider</string>
+    <string name="notification">SOS message sended!</string>
+    <string name="notification_about_no_numbers">No phone number!</string>
 
     <string name="title_activity_settings_page">SettingsPage</string>
     <string name="personal_data">Personal data:</string>

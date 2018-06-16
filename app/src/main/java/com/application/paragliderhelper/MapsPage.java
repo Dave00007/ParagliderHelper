@@ -15,6 +15,7 @@ import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -80,9 +81,9 @@ public class MapsPage extends FragmentActivity implements OnMapReadyCallback, Go
             public void onClick(View v) {
                 String message;
                 message = getResources().getString(R.string.message) + "\n" + Data.getFirstName() + " " + Data.getSurname();
-                if(Data.getPhoneNumber1().length() >= MIN_LENGTH_OF_NUMBER) sendSMS(Data.getPhoneNumber1(), message);
-                if(Data.getPhoneNumber2().length() >= MIN_LENGTH_OF_NUMBER) sendSMS(Data.getPhoneNumber2(), message);
-                if(Data.getPhoneNumber3().length() >= MIN_LENGTH_OF_NUMBER) sendSMS(Data.getPhoneNumber3(), message);
+                if(Data.getPhoneNumber1().length() >= MIN_LENGTH_OF_NUMBER){ sendSMS(Data.getPhoneNumber1(), message); displayNotificationAboutSentSms();}
+                if(Data.getPhoneNumber2().length() >= MIN_LENGTH_OF_NUMBER){ sendSMS(Data.getPhoneNumber2(), message); displayNotificationAboutSentSms();}
+                if(Data.getPhoneNumber3().length() >= MIN_LENGTH_OF_NUMBER){sendSMS(Data.getPhoneNumber3(), message);displayNotificationAboutSentSms();}
 
             }
         });
@@ -305,6 +306,13 @@ public class MapsPage extends FragmentActivity implements OnMapReadyCallback, Go
         SmsManager sms = SmsManager.getDefault();
         sms.sendTextMessage(phoneNumber, null, message,null, null);
     }
-
+    private void displayNotificationAboutSentSms(){
+        Toast.makeText(this, getResources().getString(R.string.notification),
+                Toast.LENGTH_SHORT).show();
+    }
+    private void displayNotificationAboutNoPhoneNumbers(){
+        Toast.makeText(this, getResources().getString(R.string.notification_about_no_numbers),
+                Toast.LENGTH_SHORT).show();
+    }
 }
 

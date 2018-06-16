@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
+import android.widget.Toast;
 
 import java.util.Locale;
 
@@ -152,6 +153,8 @@ public class SettingsPage extends AppCompatActivity implements View.OnClickListe
 
         Intent intentSettingsPage = new Intent(this, WelcomePage.class);
         startActivity(intentSettingsPage);
+
+        Toast.makeText(this, "All changes saved", Toast.LENGTH_LONG).show();
     }
 
 }
