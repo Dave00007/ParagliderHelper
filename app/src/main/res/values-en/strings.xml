@@ -6,7 +6,7 @@
     <string name="start">START</string>
     <string name="settings">SETTINGS</string>
     <string name="sos">S O S</string>
-    <string name="message">Need help! I have problems with the paraglider</string>
+    <string name="message">Need help! I have problems with the paraglider, here I am:</string>
     <string name="notification">SOS message sended!</string>
     <string name="notification_about_no_numbers">No phone number!</string>
 
@@ -17,15 +17,15 @@
     <string name="city">City</string>
     <string name="lanugage">Language:</string>
     <string name="vibrations">Vibrations settings:</string>
-    <string name="freq_vibrations_up">Częstotliwość wibracji przy unoszeniu</string>
-    <string name="freq_vibrations_down">Częstotliwość wibracji przy opadaniu</string>
-    <string name="phone_number_SOS">Numery telefonów do których zostanie wysłane SOS:</string>
+    <string name="freq_vibrations_up">going up frequency</string>
+    <string name="freq_vibrations_down">going down frequency</string>
+    <string name="phone_number_SOS">Where SOS sms will be sent?</string>
     <string name="phone_number_1">Phone number 1</string>
     <string name="phone_number_2">Phone number 2</string>
     <string name="phone_number_3">Phone number 3</string>
     <string name="title_activity_about_app">Map</string>
     <string name="description_of_functionality">Functional description:</string>
-    <string name="information_about_functionality">UZUPEŁNIĆ..\n1...\n2...\n3...</string>
+    <string name="information_about_functionality">\n1) map tracking\n2) SOS messages\n3) up/down vibration\n4) two languages</string>
     <string name="authors">Authors:</string>
     <string name="about_authors">Dawid Balicki\nMaciej Cymbalista\nKierunek: Informatyka\nWydział: EAIIIB\nAGH, 2018</string>
     <string name="about_application">ABOUT</string>

@@ -6,7 +6,7 @@
     <string name="start">START</string>
     <string name="settings">USTAWIENIA</string>
     <string name="sos">S O S</string>
-    <string name="message">Potrzebuje pomocy! Mam problemy z paralotnią!</string>
+    <string name="message">Potrzebuje pomocy! Mam problemy z paralotnią! Jestem tutaj: </string>
     <string name="notification">Wiadomość SOS wysłana!</string>
     <string name="notification_about_no_numbers">Brak podanego numeru!</string>
 
@@ -26,7 +26,7 @@
     <string name="phone_number_3">Numer telefonu 3</string>
     <string name="title_activity_about_app">Mapy</string>
     <string name="description_of_functionality">Opis funkcjonalności:</string>
-    <string name="information_about_functionality">UZUPEŁNIĆ..\n1...\n2...\n3...</string>
+    <string name="information_about_functionality">\n1) śledzenie trasy w czasie rzeczywistym\n2) SMS S.O.S. na wybrane numery\n3) wibracja informująca o wznoszeniu\n4) dwa dostepne języki</string>
     <string name="authors">Autorzy:</string>
     <string name="about_authors">Dawid Balicki\nMaciej Cymbalista\nKierunek: Informatyka\nWydział: EAIIIB\nAGH, 2018</string>
     <string name="about_application">O APLIKACJI</string>

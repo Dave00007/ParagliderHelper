@@ -46,15 +46,19 @@ public class Accelerometer extends Service implements SensorEventListener {
     @Override
     public void onSensorChanged(SensorEvent sensorEvent) {
         if (sensorEvent.sensor.getType()==Sensor.TYPE_ACCELEROMETER) {
-            ax = sensorEvent.values[0];
-            //Log.e("onChenged", "jestt");
-
+            ay = sensorEvent.values[1];
             //vibrations.vibreDown();
         }
-//        if (ax<0){
-//            Vibrations vibr = new Vibrations(this);
-//            vibr.vibreDown();
-//        }
+        if (ay<0){
+            vibrations.vibreDown();
+        }
+        else if(ay>11){
+            vibrations.vibreUp();
+        }
+        else{
+            vibrations.vibreStop();
+        }
+
     }
 
     @Override

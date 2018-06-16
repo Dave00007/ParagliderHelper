@@ -1,7 +1,6 @@
 package com.application.paragliderhelper;
 
 import android.Manifest;
-import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.pm.PackageManager;
@@ -80,7 +79,11 @@ public class MapsPage extends FragmentActivity implements OnMapReadyCallback, Go
         sosButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 String message;
-                message = getResources().getString(R.string.message) + "\n" + Data.getFirstName() + " " + Data.getSurname();
+                message = getResources().getString(R.string.message) + "\n" +
+                        mLastLocation.getLatitude()+ " " +
+                        mLastLocation.getLongitude()+"\n"+
+                        Data.getFirstName() + " " +
+                        Data.getSurname();
                 if(Data.getPhoneNumber1().length() >= MIN_LENGTH_OF_NUMBER){ sendSMS(Data.getPhoneNumber1(), message); displayNotificationAboutSentSms();}
                 if(Data.getPhoneNumber2().length() >= MIN_LENGTH_OF_NUMBER){ sendSMS(Data.getPhoneNumber2(), message); displayNotificationAboutSentSms();}
                 if(Data.getPhoneNumber3().length() >= MIN_LENGTH_OF_NUMBER){sendSMS(Data.getPhoneNumber3(), message);displayNotificationAboutSentSms();}
